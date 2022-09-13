@@ -1,0 +1,35 @@
+﻿@model Project.ViewModel.VMUser
+@{
+    ViewData["Title"] = "Login";
+}
+<h1>Login</h1>
+
+
+        <form asp-action="Login"  asp-controller="user" method="post">
+
+          
+           <span asp-validation-for="email" class="text-danger"></span>
+        <label   class="form-label" asp-for="email"  >Email</label>
+        <input asp-for="email" class="form-control"  />
+
+
+         <span asp-validation-for="pass" class="text-danger"></span>
+        <label  class="form-label" asp-for="pass"  >Password</label>
+        <input asp-for="pass"  class="form-control"/>
+
+         @if(Model.errormessage!=""){
+             <div class="text-danger">@Model.errormessage</div>
+         }
+        <input style="margin-top:20px; background-color:#1363DF; color:white; border:1px solid #1363DF;text-align:center; height:45px; width:150px" type="submit" value="Login" />
+
+        </form>
+ 
+       
+
+    @section Scripts{
+   <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}
+
+ 
