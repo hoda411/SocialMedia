@@ -1,0 +1,37 @@
+﻿@model Post
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Add Post</h1>
+
+<form asp-action="Create" asp-controller="Post" method="post" enctype="multipart/form-data">
+
+    <span asp-validation-for="Title" class="text-danger"></span>
+    <label asp-for="Title" class="form-label">Title</label>
+    <input asp-for="Title" class="form-control" />
+
+
+    <span asp-validation-for="Body" class="text-danger"></span>
+    <label asp-for="Body" class="form-label">Body</label>
+    <input asp-for="Body" class="form-control" />
+
+
+    <span asp-validation-for="Img" class="text-danger"></span>
+    <label asp-for="Img" class="form-label">Image</label>
+    <input type="file" asp-for="Img" class="form-control" />
+
+    <span asp-validation-for="HashId" class="text-danger"></span>
+    <label asp-for="HashId" class="form-label">Hashtag</label>
+    <select asp-for="HashId" asp-items="@ViewBag.hashtags"></select>
+
+    <input type="submit" value="Add" />
+</form>
+
+
+@section Scripts{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}
+

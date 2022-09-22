@@ -1,0 +1,49 @@
+﻿@model User
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h1>Register</h1>
+
+<form asp-action="Register" asp-controller="User" method="post">
+    <span asp-validation-for="fname" class="text-danger"></span>
+    <label asp-for="fname" class="form-label">First Name</label>
+    <input asp-for="fname" class="form-control"/>
+
+    <span asp-validation-for="lname" class="text-danger"></span>
+    <label asp-for="lname" class="form-label">Last Name</label>
+    <input asp-for="lname" class="form-control"/>
+
+    <span asp-validation-for="Gender" class="text-danger"></span>
+    <label asp-for="Gender" class="form-label">Genser</label>
+    <select asp-for="Gender" class="form-control">
+        <option value="Female">Female</option>
+         <option value="Male">Male</option>
+    </select>
+
+    <span asp-validation-for="Email" class="text-danger"></span>
+    <label asp-for="Email" class="form-label">Email</label>
+    <input asp-for="Email" class="form-control" />
+
+    <span asp-validation-for="Phone" class="text-danger"></span>
+    <label asp-for="Phone" class="form-label">Phone</label>
+    <input asp-for="Phone" class="form-control" />
+
+    <span asp-validation-for="Password" class="text-danger"></span>
+    <label asp-for="Password" class="form-label">Password</label>
+    <input type="password" asp-for="Password" class="form-control" />
+
+    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+    <label asp-for="ConfirmPassword" class="form-label">Confirm Password</label>
+    <input type="password" asp-for="ConfirmPassword" class="form-control" />
+
+
+    <input type="submit" value="Register" />
+</form>
+
+
+@section Scripts{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}

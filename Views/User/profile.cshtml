@@ -1,0 +1,39 @@
+﻿@model User
+@{
+    ViewData["Title"] = "profile";
+}
+
+<h1>profile</h1>
+
+<h3>Name</h3>
+<p>@Model.fname @Model.lname</p>
+
+
+<h3>Gender</h3>
+<p>@Model.Gender</p>
+
+<h3>Email</h3>
+<p>@Model.Email</p>
+
+<br />
+<h3>Posts</h3>
+<br />
+@foreach (var post in Model.posts)
+{
+    <div class="card" style="width: 18rem;">
+        <img src="@post.Img" class="card-img-top" alt="...">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item text-default">#@post.hashtag.Title</li>
+        </ul>
+        <div class="card-body">
+            <h5 class="card-title">@post.Title</h5>
+            <p class="card-text">@post.Body</p>
+        </div>
+
+        <div class="card-body">
+            <a asp-action="Details" asp-controller="Post" class="card-link">Read more ...</a>
+        </div>
+    </div>
+    <br />
+}
+
